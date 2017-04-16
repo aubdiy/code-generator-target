@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="self.aub.product.cgt.mapper.DemoMapper">
+
+
+    <insert id="insert" parameterType="DemoPo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO demo
+            (
+                tinyint_demo,
+                smallint_demo,
+                int_demo,
+                bigint_demo,
+                float_demo,
+                double_demo,
+                decimal_demo,
+                char_demo,
+                varchar_demo,
+                date_demo,
+                time_demo,
+                date_time_demo,
+                time_stamp_demo
+            )
+        VALUES
+            (
+                #{tinyintDemo},
+                #{smallintDemo},
+                #{intDemo},
+                #{bigintDemo},
+                #{floatDemo},
+                #{doubleDemo},
+                #{decimalDemo},
+                #{charDemo},
+                #{varcharDemo},
+                #{dateDemo},
+                #{timeDemo},
+                #{dateTimeDemo},
+                #{timeStampDemo}
+          )
+    </insert>
+
+    <insert id="inserts" parameterType="List" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO demo
+            (
+                tinyint_demo,
+                smallint_demo,
+                int_demo,
+                bigint_demo,
+                float_demo,
+                double_demo,
+                decimal_demo,
+                char_demo,
+                varchar_demo,
+                date_demo,
+                time_demo,
+                date_time_demo,
+                time_stamp_demo
+            )
+        VALUES
+        <foreach collection="List" item="item" index="index" separator=",">
+            (
+                #{item.tinyintDemo},
+                #{item.smallintDemo},
+                #{item.intDemo},
+                #{item.bigintDemo},
+                #{item.floatDemo},
+                #{item.doubleDemo},
+                #{item.decimalDemo},
+                #{item.charDemo},
+                #{item.varcharDemo},
+                #{item.dateDemo},
+                #{item.timeDemo},
+                #{item.dateTimeDemo},
+                #{item.timeStampDemo}
+            )
+        </foreach>
+    </insert>
+
+    <update id="updateById" parameterType="DemoPo">
+        UPDATE demo
+        <set>
+            <if test=" tinyintDemo != null"> tinyint_demo = #{tinyintDemo},</if>
+            <if test=" smallintDemo != null"> smallint_demo = #{smallintDemo},</if>
+            <if test=" intDemo != null"> int_demo = #{intDemo},</if>
+            <if test=" bigintDemo != null"> bigint_demo = #{bigintDemo},</if>
+            <if test=" floatDemo != null"> float_demo = #{floatDemo},</if>
+            <if test=" doubleDemo != null"> double_demo = #{doubleDemo},</if>
+            <if test=" decimalDemo != null"> decimal_demo = #{decimalDemo},</if>
+            <if test=" charDemo != null"> char_demo = #{charDemo},</if>
+            <if test=" varcharDemo != null"> varchar_demo = #{varcharDemo},</if>
+            <if test=" dateDemo != null"> date_demo = #{dateDemo},</if>
+            <if test=" timeDemo != null"> time_demo = #{timeDemo},</if>
+            <if test=" dateTimeDemo != null"> date_time_demo = #{dateTimeDemo},</if>
+            <if test=" timeStampDemo != null"> time_stamp_demo = #{timeStampDemo},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="Long">
+        DELETE FROM demo WHERE id = #{id}
+    </delete>
+
+    <select id="selectById" parameterType="Long" resultType="DemoPo">
+        SELECT
+            id,
+            tinyint_demo,
+            smallint_demo,
+            int_demo,
+            bigint_demo,
+            float_demo,
+            double_demo,
+            decimal_demo,
+            char_demo,
+            varchar_demo,
+            date_demo,
+            time_demo,
+            date_time_demo,
+            time_stamp_demo
+        FROM demo WHERE id = #{id}
+    </select>
+</mapper>

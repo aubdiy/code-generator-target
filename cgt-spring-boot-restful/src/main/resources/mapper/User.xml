@@ -12,16 +12,24 @@
 	</resultMap>
 
 	<insert id="insert" parameterType="UserPo" useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO user
-		VALUES(#{id}, #{userName}, #{password}, #{age})
+		INSERT INTO user (user_name, password, age)
+		VALUES(#{userName}, #{password}, #{age})
+	</insert>
+
+	<insert id="inserts" parameterType="List" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO user (user_name, password, age) VALUES
+		<foreach collection="List" item="item" index="index" separator=",">
+			(#{item.userName}, #{item.password}, #{item.age})
+		</foreach>
 	</insert>
 
 	<update id="updateById" parameterType="UserPo">
-		UPDATE user 
-		SET 
-			user_name = #{userName},
-			password = #{password},
-			age = #{age}
+		UPDATE user
+		<set>
+			<if test="userName != null">user_name=#{userName},</if>
+			<if test="password != null">password=#{password},</if>
+			<if test="age != null">age=#{age},</if>
+		</set>
 		WHERE id = #{id}
 	</update>
 	
