@@ -7,13 +7,13 @@ import java.util.Date;
 
 @Data
 public class DemoPo {
-    private Long id;
-    private Short tinyintDemo;
-    private Short smallintDemo;
-    private Integer intDemo;
-    private Long bigintDemo;
-    private Float floatDemo;
-    private Double doubleDemo;
+    private long id;
+    private short tinyintDemo;
+    private short smallintDemo;
+    private int intDemo;
+    private long bigintDemo;
+    private float floatDemo;
+    private double doubleDemo;
     private BigDecimal decimalDemo;
     private String charDemo;
     private String varcharDemo;

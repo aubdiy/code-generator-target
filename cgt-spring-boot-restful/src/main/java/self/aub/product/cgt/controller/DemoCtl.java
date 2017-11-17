@@ -1,5 +1,6 @@
 package self.aub.product.cgt.controller;
 
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,6 +9,7 @@ import self.aub.product.cgt.po.DemoPo;
 import self.aub.product.cgt.service.DemoService;
 
 import javax.annotation.Resource;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/demo")
@@ -17,23 +19,28 @@ public class DemoCtl {
 
     @RequestMapping(method = RequestMethod.POST)
     public boolean create(DemoPo demoPo) {
-        return demoService.create(demoPo);
+        return demoService.create( demoPo );
     }
 
     @RequestMapping(method = RequestMethod.PUT)
     public boolean update(DemoPo demoPo) {
-        return demoService.updateById(demoPo);
+        return demoService.updateById( demoPo );
     }
 
     @RequestMapping(path = "{id}", method = RequestMethod.DELETE)
     public boolean removeById(@PathVariable("id") Long id) {
-        demoService.removeById(id);
+        demoService.removeById( id );
         return true;
     }
 
     @RequestMapping(path = "{id}", method = RequestMethod.GET)
     public DemoPo get(@PathVariable("id") Long id) {
-        return demoService.getById(id);
+        return demoService.getById( id );
+    }
+
+    @RequestMapping(path = "list", method = RequestMethod.GET)
+    public Page<DemoPo> selectAll1(Map<String, Object> paramMap) {
+        return demoService.listForPage( paramMap, 1 );
     }
 
 }
