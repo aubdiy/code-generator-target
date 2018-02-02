@@ -13,6 +13,6 @@ CREATE TABLE `demo` (
   `date_demo` date NOT NULL,
   `time_demo` time NOT NULL,
   `date_time_demo` datetime NOT NULL,
-  `time_stamp_demo` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `time_stamp_demo` timestamp NOT NULL DEFAULT '2017-04-24 17:04:37',
   PRIMARY KEY (`id`)
 );

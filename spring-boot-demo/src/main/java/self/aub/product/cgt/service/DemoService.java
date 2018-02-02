@@ -1,7 +1,5 @@
 package self.aub.product.cgt.service;
 
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import self.aub.product.cgt.common.Page;
 import self.aub.product.cgt.mapper.DemoMapper;

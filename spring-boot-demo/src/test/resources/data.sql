@@ -1,2 +1,2 @@
 -- 初始化数据
-INSERT INTO `test`.`demo` (`tinyint_demo`, `smallint_demo`, `int_demo`, `bigint_demo`, `float_demo`, `double_demo`, `decimal_demo`, `char_demo`, `varchar_demo`, `date_demo`, `time_demo`, `date_time_demo`) VALUES ('1', '1', '1', '1', '1', '1', '1', 'a', 'a', '2017-04-24', '17:04:37', '2017-04-24 17:04:37');
+INSERT INTO `demo` (`tinyint_demo`, `smallint_demo`, `int_demo`, `bigint_demo`, `float_demo`, `double_demo`, `decimal_demo`, `char_demo`, `varchar_demo`, `date_demo`, `time_demo`, `date_time_demo`) VALUES ('1', '1', '1', '1', '1', '1', '1', 'a', 'a', '2017-04-24', '17:04:37', '2017-04-24 17:04:37');
