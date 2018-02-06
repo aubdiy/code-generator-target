@@ -144,6 +144,24 @@
         <!-- test -->
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <sonar.host.url>
+                    http://10.3.121.46:9000
+                </sonar.host.url>
+                <sonar.login>
+                    b41642e4d45f92d96e74eb7b9d02efadb58bef7e
+                </sonar.login>
+            </properties>
+        </profile>
+    </profiles>
+
+
     <build>
         <plugins>
             <plugin>
@@ -198,6 +216,11 @@
                         <version>2.5</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.4.0.905</version>
             </plugin>
         </plugins>
     </build>

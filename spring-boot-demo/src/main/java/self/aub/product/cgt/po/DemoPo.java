@@ -1,38 +1,57 @@
 package self.aub.product.cgt.po;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
+@ApiModel(description = "例子")
 public class DemoPo {
-    @ApiModelProperty(value = "")
+
+    @ApiModelProperty(value = "自增主键")
     private long id;
-    @ApiModelProperty(value = "")
+
+    @ApiModelProperty(value = "tinyint 例子")
     private short tinyintDemo;
-    @ApiModelProperty(value = "")
+
+    @ApiModelProperty(value = "smallint 例子")
     private short smallintDemo;
-    @ApiModelProperty(value = "")
+
+    @ApiModelProperty(value = "int 例子")
     private int intDemo;
-    @ApiModelProperty(value = "")
+
+    @ApiModelProperty(value = "bigint 例子")
     private long bigintDemo;
-    @ApiModelProperty(value = "")
+
+    @ApiModelProperty(value = "float 例子")
     private String floatDemo;
-    @ApiModelProperty(value = "")
+
+    @ApiModelProperty(value = "double 例子")
     private double doubleDemo;
-    @ApiModelProperty(value = "")
+
+    @ApiModelProperty(value = "decimal 例子")
     private String decimalDemo;
-    @ApiModelProperty(value = "")
+
+    @ApiModelProperty(value = "char 例子")
     private String charDemo;
-    @ApiModelProperty(value = "")
+
+    @ApiModelProperty(value = "varchar 例子")
     private String varcharDemo;
-    @ApiModelProperty(value = "")
+
+    @ApiModelProperty(value = "date 例子")
     private Date dateDemo;
-    @ApiModelProperty(value = "")
+
+    @ApiModelProperty(value = "time 例子")
     private Date timeDemo;
-    @ApiModelProperty(value = "")
+
+    @ApiModelProperty(value = "date_time 例子")
     private Date dateTimeDemo;
-    @ApiModelProperty(value = "")
+
+    @ApiModelProperty(value = "time_stamp 例子")
     private Date timeStampDemo;
+
+    private DemoPo() {
+    }
 }

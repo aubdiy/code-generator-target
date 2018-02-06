@@ -4,7 +4,6 @@ package self.aub.product.cgt.common;
  * 基础的常量类
  */
 public class BasicConstant {
-
     public static final char CHAR_TAB = '\t';
     public static final char CHAR_ENTER = '\n';
     public static final char CHAR_SOH = '\u0001';
@@ -96,5 +95,4 @@ public class BasicConstant {
 
     private BasicConstant() {
     }
-
 }

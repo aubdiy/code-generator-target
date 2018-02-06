@@ -31,6 +31,6 @@ public interface DemoMapper {
     long countForPage(Map<String, Object> paramMap);
 
     //TODO 如不使用，开发后请删除此方法
-    List<DemoPo> selectForPage(@Param("paramMap")Map<String, Object> paramMap, @Param("startIndex") int startIndex, @Param("pageSize")int pageSize);
+    List<DemoPo> selectForPage(@Param("paramMap") Map<String, Object> paramMap, @Param("startIndex") int startIndex, @Param("pageSize") int pageSize);
 
 }

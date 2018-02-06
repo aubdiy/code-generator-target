@@ -7,6 +7,7 @@ import lombok.Data;
  */
 @Data
 public class BasicBizException extends RuntimeException {
+
     private final String bizCode;
 
     public BasicBizException(String bizCode, String message) {
