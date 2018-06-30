@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="self.aub.product.cgt.mapper.DemoMapper">
+
+    <!-- TODO 作为实例使用，已经配置了 "mapUnderscoreToCamelCase"，开发后请删除此 MAP 映射 -->
+    <resultMap id="DemoPoMap" type="DemoPo">
+        <result property="id" column="id" />
+        <result property="tinyintDemo" column="tinyint_demo" />
+        <result property="smallintDemo" column="smallint_demo" />
+        <result property="intDemo" column="int_demo" />
+        <result property="bigintDemo" column="bigint_demo" />
+        <result property="floatDemo" column="float_demo" />
+        <result property="doubleDemo" column="double_demo" />
+        <result property="decimalDemo" column="decimal_demo" />
+        <result property="charDemo" column="char_demo" />
+        <result property="varcharDemo" column="varchar_demo" />
+        <result property="dateDemo" column="date_demo" />
+        <result property="timeDemo" column="time_demo" />
+        <result property="dateTimeDemo" column="date_time_demo" />
+        <result property="timeStampDemo" column="time_stamp_demo" />
+    </resultMap>
+
+    <!-- TODO 如不使用，开发后请删除此 SQL -->
+    <insert id="insert" parameterType="DemoPo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO demo
+            (
+                tinyint_demo,
+                smallint_demo,
+                int_demo,
+                bigint_demo,
+                float_demo,
+                double_demo,
+                decimal_demo,
+                char_demo,
+                varchar_demo,
+                date_demo,
+                time_demo,
+                date_time_demo,
+                time_stamp_demo
+            )
+        VALUES
+            (
+                #{tinyintDemo},
+                #{smallintDemo},
+                #{intDemo},
+                #{bigintDemo},
+                #{floatDemo},
+                #{doubleDemo},
+                #{decimalDemo},
+                #{charDemo},
+                #{varcharDemo},
+                #{dateDemo},
+                #{timeDemo},
+                #{dateTimeDemo},
+                #{timeStampDemo}
+            )
+    </insert>
+
+    <!-- TODO 如不使用，开发后请删除此 SQL -->
+    <insert id="inserts" parameterType="list" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO demo
+            (
+                tinyint_demo,
+                smallint_demo,
+                int_demo,
+                bigint_demo,
+                float_demo,
+                double_demo,
+                decimal_demo,
+                char_demo,
+                varchar_demo,
+                date_demo,
+                time_demo,
+                date_time_demo,
+                time_stamp_demo
+            )
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+                #{item.tinyintDemo},
+                #{item.smallintDemo},
+                #{item.intDemo},
+                #{item.bigintDemo},
+                #{item.floatDemo},
+                #{item.doubleDemo},
+                #{item.decimalDemo},
+                #{item.charDemo},
+                #{item.varcharDemo},
+                #{item.dateDemo},
+                #{item.timeDemo},
+                #{item.dateTimeDemo},
+                #{item.timeStampDemo}
+            )
+        </foreach>
+    </insert>
+
+    <!-- TODO 如不使用，开发后请删除此 SQL -->
+    <update id="updateById" parameterType="DemoPo">
+        UPDATE demo
+        <set>
+            <if test=" tinyintDemo != null"> tinyint_demo = #{tinyintDemo},</if>
+            <if test=" smallintDemo != null"> smallint_demo = #{smallintDemo},</if>
+            <if test=" intDemo != null"> int_demo = #{intDemo},</if>
+            <if test=" bigintDemo != null"> bigint_demo = #{bigintDemo},</if>
+            <if test=" floatDemo != null"> float_demo = #{floatDemo},</if>
+            <if test=" doubleDemo != null"> double_demo = #{doubleDemo},</if>
+            <if test=" decimalDemo != null"> decimal_demo = #{decimalDemo},</if>
+            <if test=" charDemo != null"> char_demo = #{charDemo},</if>
+            <if test=" varcharDemo != null"> varchar_demo = #{varcharDemo},</if>
+            <if test=" dateDemo != null"> date_demo = #{dateDemo},</if>
+            <if test=" timeDemo != null"> time_demo = #{timeDemo},</if>
+            <if test=" dateTimeDemo != null"> date_time_demo = #{dateTimeDemo},</if>
+            <if test=" timeStampDemo != null"> time_stamp_demo = #{timeStampDemo},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- TODO 如不使用，开发后请删除此 SQL -->
+    <delete id="deleteById" parameterType="long">
+        DELETE FROM demo WHERE id = #{id}
+    </delete>
+
+    <!-- TODO 如不使用，开发后请删除此 SQL -->
+    <select id="selectById" parameterType="long" resultType="DemoPo">
+        SELECT
+            id,
+            tinyint_demo,
+            smallint_demo,
+            int_demo,
+            bigint_demo,
+            float_demo,
+            double_demo,
+            decimal_demo,
+            char_demo,
+            varchar_demo,
+            date_demo,
+            time_demo,
+            date_time_demo,
+            time_stamp_demo
+        FROM demo WHERE id = #{id}
+    </select>
+
+    <!-- TODO 如不使用，开发后请删除此 SQL -->
+    <select id="selectAll" parameterType="map" resultType="DemoPo" >
+        SELECT
+            id,
+            tinyint_demo,
+            smallint_demo,
+            int_demo,
+            bigint_demo,
+            float_demo,
+            double_demo,
+            decimal_demo,
+            char_demo,
+            varchar_demo,
+            date_demo,
+            time_demo,
+            date_time_demo,
+            time_stamp_demo
+        FROM demo
+
+        <where>
+            <if test="_parameter.containsKey('id')">
+                AND id = #{id}
+            </if>
+            <if test="_parameter.containsKey('tinyintDemo')">
+                AND tinyint_demo = #{tinyintDemo}
+            </if>
+            <if test="_parameter.containsKey('smallintDemo')">
+                AND smallint_demo = #{smallintDemo}
+            </if>
+            <if test="_parameter.containsKey('intDemo')">
+                AND int_demo = #{intDemo}
+            </if>
+            <if test="_parameter.containsKey('bigintDemo')">
+                AND bigint_demo = #{bigintDemo}
+            </if>
+            <if test="_parameter.containsKey('floatDemo')">
+                AND float_demo = #{floatDemo}
+            </if>
+            <if test="_parameter.containsKey('doubleDemo')">
+                AND double_demo = #{doubleDemo}
+            </if>
+            <if test="_parameter.containsKey('decimalDemo')">
+                AND decimal_demo = #{decimalDemo}
+            </if>
+            <if test="_parameter.containsKey('charDemo')">
+                AND char_demo = #{charDemo}
+            </if>
+            <if test="_parameter.containsKey('varcharDemo')">
+                AND varchar_demo = #{varcharDemo}
+            </if>
+            <if test="_parameter.containsKey('dateDemo')">
+                AND date_demo = #{dateDemo}
+            </if>
+            <if test="_parameter.containsKey('timeDemo')">
+                AND time_demo = #{timeDemo}
+            </if>
+            <if test="_parameter.containsKey('dateTimeDemo')">
+                AND date_time_demo = #{dateTimeDemo}
+            </if>
+            <if test="_parameter.containsKey('timeStampDemo')">
+                AND time_stamp_demo = #{timeStampDemo}
+            </if>
+        </where>
+    </select>
+
+    <!-- TODO 如不使用，开发后请删除此 SQL -->
+    <select id="countForPage" parameterType="map" resultType="java.lang.Long">
+        SELECT COUNT(1)
+        FROM demo
+        <where>
+                <if test="id != null and id != ''">
+                    AND id = #{id}
+                </if>
+                <if test="tinyintDemo != null and tinyintDemo != ''">
+                    AND tinyint_demo = #{tinyintDemo}
+                </if>
+                <if test="smallintDemo != null and smallintDemo != ''">
+                    AND smallint_demo = #{smallintDemo}
+                </if>
+                <if test="intDemo != null and intDemo != ''">
+                    AND int_demo = #{intDemo}
+                </if>
+                <if test="bigintDemo != null and bigintDemo != ''">
+                    AND bigint_demo = #{bigintDemo}
+                </if>
+                <if test="floatDemo != null and floatDemo != ''">
+                    AND float_demo = #{floatDemo}
+                </if>
+                <if test="doubleDemo != null and doubleDemo != ''">
+                    AND double_demo = #{doubleDemo}
+                </if>
+                <if test="decimalDemo != null and decimalDemo != ''">
+                    AND decimal_demo = #{decimalDemo}
+                </if>
+                <if test="charDemo != null and charDemo != ''">
+                    AND char_demo = #{charDemo}
+                </if>
+                <if test="varcharDemo != null and varcharDemo != ''">
+                    AND varchar_demo = #{varcharDemo}
+                </if>
+                <if test="dateDemo != null and dateDemo != ''">
+                    AND date_demo = #{dateDemo}
+                </if>
+                <if test="timeDemo != null and timeDemo != ''">
+                    AND time_demo = #{timeDemo}
+                </if>
+                <if test="dateTimeDemo != null and dateTimeDemo != ''">
+                    AND date_time_demo = #{dateTimeDemo}
+                </if>
+                <if test="timeStampDemo != null and timeStampDemo != ''">
+                    AND time_stamp_demo = #{timeStampDemo}
+                </if>
+        </where>
+    </select>
+
+    <!-- TODO 如不使用，开发后请删除此 SQL -->
+    <select id="selectForPage" parameterType="map" resultType="DemoPo">
+        SELECT
+                id,
+                tinyint_demo,
+                smallint_demo,
+                int_demo,
+                bigint_demo,
+                float_demo,
+                double_demo,
+                decimal_demo,
+                char_demo,
+                varchar_demo,
+                date_demo,
+                time_demo,
+                date_time_demo,
+                time_stamp_demo
+        FROM demo 
+        <where>
+            <if test="paramMap.id != null and paramMap.id != ''">
+                AND id = #{paramMap.id}
+            </if>
+            <if test="paramMap.tinyintDemo != null and paramMap.tinyintDemo != ''">
+                AND tinyint_demo = #{paramMap.tinyintDemo}
+            </if>
+            <if test="paramMap.smallintDemo != null and paramMap.smallintDemo != ''">
+                AND smallint_demo = #{paramMap.smallintDemo}
+            </if>
+            <if test="paramMap.intDemo != null and paramMap.intDemo != ''">
+                AND int_demo = #{paramMap.intDemo}
+            </if>
+            <if test="paramMap.bigintDemo != null and paramMap.bigintDemo != ''">
+                AND bigint_demo = #{paramMap.bigintDemo}
+            </if>
+            <if test="paramMap.floatDemo != null and paramMap.floatDemo != ''">
+                AND float_demo = #{paramMap.floatDemo}
+            </if>
+            <if test="paramMap.doubleDemo != null and paramMap.doubleDemo != ''">
+                AND double_demo = #{paramMap.doubleDemo}
+            </if>
+            <if test="paramMap.decimalDemo != null and paramMap.decimalDemo != ''">
+                AND decimal_demo = #{paramMap.decimalDemo}
+            </if>
+            <if test="paramMap.charDemo != null and paramMap.charDemo != ''">
+                AND char_demo = #{paramMap.charDemo}
+            </if>
+            <if test="paramMap.varcharDemo != null and paramMap.varcharDemo != ''">
+                AND varchar_demo = #{paramMap.varcharDemo}
+            </if>
+            <if test="paramMap.dateDemo != null and paramMap.dateDemo != ''">
+                AND date_demo = #{paramMap.dateDemo}
+            </if>
+            <if test="paramMap.timeDemo != null and paramMap.timeDemo != ''">
+                AND time_demo = #{paramMap.timeDemo}
+            </if>
+            <if test="paramMap.dateTimeDemo != null and paramMap.dateTimeDemo != ''">
+                AND date_time_demo = #{paramMap.dateTimeDemo}
+            </if>
+            <if test="paramMap.timeStampDemo != null and paramMap.timeStampDemo != ''">
+                AND time_stamp_demo = #{paramMap.timeStampDemo}
+            </if>
+        </where>
+        ORDER BY id DESC
+        LIMIT #{startIndex}, #{pageSize}
+    </select>
+</mapper>
